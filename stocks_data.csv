@@ -1,0 +1,48 @@
+STOCK_NAME,TICKER_SYMBOL,MARKET_PRICE,BOOK_VALUE_PER_SHARE
+Apple Inc.,AAPL,197.91,23.49
+Microsoft Corporation,MSFT,423.46,20.78
+"Amazon.com, Inc.",AMZN,157.89,12.35
+Alphabet Inc.,GOOGL,138.9,15.78
+"Tesla, Inc.",TSLA,242.36,10.34
+"Meta Platforms, Inc.",META,311.22,18.45
+NVIDIA Corporation,NVDA,469.56,27.33
+The Walt Disney Company,DIS,93.76,12.45
+"Netflix, Inc.",NFLX,412.45,20.22
+"Advanced Micro Devices, Inc.",AMD,101.89,8.9
+"PepsiCo, Inc.",PEP,180.44,10.23
+Coca-Cola Company,KO,60.32,5.43
+Intel Corporation,INTC,35.9,15.52
+Starbucks Corporation,SBUX,97.63,1.96
+"PayPal Holdings, Inc.",PYPL,61.55,7.21
+Walmart Inc.,WMT,159.32,27.62
+Procter &amp; Gamble Co.,PG,152.33,20.84
+Johnson &amp; Johnson,JNJ,155.75,25.67
+"Cisco Systems, Inc.",CSCO,57.34,11.45
+Oracle Corporation,ORCL,110.45,4.67
+Adobe Inc.,ADBE,572.15,37.85
+Visa Inc.,V,240.63,13.67
+Mastercard Inc.,MA,403.92,13.82
+Broadcom Inc.,AVGO,885.69,97.83
+"Salesforce, Inc.",CRM,214.77,20.51
+Pfizer Inc.,PFE,35.96,10.45
+Boeing Company,BA,207.33,-19.89
+AT&amp;T Inc.,T,14.87,20.15
+Verizon Communications Inc.,VZ,31.97,22.39
+Exxon Mobil Corporation,XOM,109.22,42.54
+Chevron Corporation,CVX,157.29,83.73
+McDonald’s Corporation,MCD,286.13,7.85
+3M Company,MMM,90.04,17.56
+Caterpillar Inc.,CAT,288.96,27.13
+"Goldman Sachs Group, Inc.",GS,342.57,315.44
+JPMorgan Chase &amp; Co.,JPM,145.21,94.85
+Bank of America Corporation,BAC,26.45,29.43
+Citigroup Inc.,C,44.82,92.39
+AbbVie Inc.,ABBV,149.89,5.54
+"Merck &amp; Co., Inc.",MRK,111.33,6.87
+Lockheed Martin Corporation,LMT,471.23,-15.45
+Northrop Grumman Corporation,NOC,515.47,-27.43
+Honeywell International Inc.,HON,196.12,21.88
+Raytheon Technologies Corporation,RTX,90.37,36.53
+"Delta Air Lines, Inc.",DAL,40.77,16.33
+American Airlines Group Inc.,AAL,14.25,-6.67
+"United Airlines Holdings, Inc.",UAL,47.89,-14.56
