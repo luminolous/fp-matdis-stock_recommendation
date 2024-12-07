@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 
 st.title("Tes AgGrid")
+st.text_input("Masukkan teks Anda:", "Contoh teks")
 
 # DataFrame contoh
 df = pd.DataFrame({
