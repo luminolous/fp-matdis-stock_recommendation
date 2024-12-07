@@ -1,51 +1,94 @@
-{"intents": [
-    {"tag": "pbv",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai pbv nya", 
-                  "buatkan rekomendasi pbv nya", 
-                  "urutkan dari yang terbesar dahulu", 
-                  "PBV"],
+{
+  "intents": [
+    {
+      "tag": "pbv",
+      "patterns": [
+        "Tolong buatkan rekomendasi berdasarkan nilai PBV dari yang terbesar",
+        "Buatkan rekomendasi PBV-nya dari nilai tertinggi",
+        "Urutkan PBV mulai dari yang terbesar",
+        "Saya ingin rekomendasi PBV terbesar",
+        "PBV dari yang paling tinggi",
+        "Tampilkan rekomendasi PBV terbesar",
+        "PBV tertinggi",
+        "Rekomendasi PBV nilai besar"
+      ],
       "responses": ["PBV"],
       "context_set": ""
     },
-    {"tag": "pbv",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai pbv nya", 
-                  "buatkan rekomendasi pbv nya", 
-                  "urutkan dari yang terkecil dahulu", 
-                  "PBV"],
+    {
+      "tag": "pbv_reverse",
+      "patterns": [
+        "Tolong buatkan rekomendasi berdasarkan nilai PBV dari yang terkecil",
+        "Buatkan rekomendasi PBV-nya dari nilai terendah",
+        "Urutkan PBV mulai dari yang terkecil",
+        "Saya ingin rekomendasi PBV terkecil",
+        "PBV dari yang paling kecil",
+        "Tampilkan rekomendasi PBV terkecil",
+        "PBV terendah",
+        "Rekomendasi PBV nilai kecil"
+      ],
       "responses": ["PBV REVERSE"],
       "context_set": ""
     },
-    {"tag": "pe_ratio",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan PE ratio nya", 
-                  "buatkan rekomendasi PE Ratio nya", 
-                  "urutkan dari yang terbesar dahulu", 
-                  "pe ratio"],
+    {
+      "tag": "pe_ratio",
+      "patterns": [
+        "Tolong buatkan rekomendasi berdasarkan PE ratio dari yang terbesar",
+        "Buatkan rekomendasi PE Ratio dari nilai tertinggi",
+        "Urutkan PE ratio mulai dari yang terbesar",
+        "Saya ingin rekomendasi PE ratio terbesar",
+        "PE ratio dari yang paling tinggi",
+        "Tampilkan rekomendasi PE ratio terbesar",
+        "PE ratio tertinggi",
+        "Rekomendasi PE ratio nilai besar"
+      ],
       "responses": ["PE RATIO"],
       "context_set": ""
     },
-    {"tag": "pe_ratio",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan PE ratio nya", 
-                  "buatkan rekomendasi PE Ratio nya", 
-                  "urutkan dari yang terkecil dahulu", 
-                  "pe ratio"],
+    {
+      "tag": "pe_ratio_reverse",
+      "patterns": [
+        "Tolong buatkan rekomendasi berdasarkan PE ratio dari yang terkecil",
+        "Buatkan rekomendasi PE Ratio dari nilai terendah",
+        "Urutkan PE ratio mulai dari yang terkecil",
+        "Saya ingin rekomendasi PE ratio terkecil",
+        "PE ratio dari yang paling kecil",
+        "Tampilkan rekomendasi PE ratio terkecil",
+        "PE ratio terendah",
+        "Rekomendasi PE ratio nilai kecil"
+      ],
       "responses": ["PE RATIO REVERSE"],
       "context_set": ""
     },
-    {"tag": "divident_yield",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai divident yield nya", 
-                  "buatkan rekomendasi divident yield nya", 
-                  "urutkan dari yang terbesar dahulu", 
-                  "divident yield"],
+    {
+      "tag": "divident_yield",
+      "patterns": [
+        "Tolong buatkan rekomendasi berdasarkan nilai divident yield dari yang terbesar",
+        "Buatkan rekomendasi divident yield dari nilai tertinggi",
+        "Urutkan divident yield mulai dari yang terbesar",
+        "Saya ingin rekomendasi divident yield terbesar",
+        "Divident yield dari yang paling tinggi",
+        "Tampilkan rekomendasi divident yield terbesar",
+        "Divident yield tertinggi",
+        "Rekomendasi divident yield nilai besar"
+      ],
       "responses": ["DIVIDENT YIELD"],
       "context_set": ""
     },
-    {"tag": "divident_yield",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai divident yield nya", 
-                  "buatkan rekomendasi divident yield nya", 
-                  "urutkan dari yang terkecil dahulu", 
-                  "divident yield"],
+    {
+      "tag": "divident_yield_reverse",
+      "patterns": [
+        "Tolong buatkan rekomendasi berdasarkan nilai divident yield dari yang terkecil",
+        "Buatkan rekomendasi divident yield dari nilai terendah",
+        "Urutkan divident yield mulai dari yang terkecil",
+        "Saya ingin rekomendasi divident yield terkecil",
+        "Divident yield dari yang paling kecil",
+        "Tampilkan rekomendasi divident yield terkecil",
+        "Divident yield terendah",
+        "Rekomendasi divident yield nilai kecil"
+      ],
       "responses": ["DIVIDENT YIELD REVERSE"],
       "context_set": ""
     }
   ]
-  }
+}

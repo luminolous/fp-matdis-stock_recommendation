@@ -1,6 +1,4 @@
-import pandas as pd
 import streamlit as st
-from st_aggrid import AgGrid
 from function import *
 import json
 import torch
@@ -44,103 +42,28 @@ prob = probs[0][predicted.item()]
 button = st.button("Run")
 st.write("## Result :")
 
-if prob.item() > 0.:
+if prob.item() > 0.7:
     for intent in intents["intents"]:
         if tag == intent["tag"]:
             if button:
                 print(intent['responses'])
                 if intent['responses'] == ['PBV']:
-                    data = pd.read_csv(uploadedFile)
-
-                    data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
-                    columnSort = data['PBV'].tolist()
-                    sortedColumn = quick_sort(columnSort)
-
-                    sorted_index = [columnSort.index(val) for val in sortedColumn]
-                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-
-                    st.write("### Data Tabel")
-                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+                    pbv(uploadedFile)
 
                 elif intent['responses'] == ['PBV REVERSE']:
-                    data = pd.read_csv(uploadedFile)
-
-                    data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
-                    columnSort = data['PBV'].tolist()
-                    sortedColumn = quick_sort_reverse(columnSort)
-
-                    sorted_index = [columnSort.index(val) for val in sortedColumn]
-                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-
-                    st.write("### Data Tabel")
-                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+                    pbv_reverse(uploadedFile)
 
                 elif intent['responses'] == ['PE RATIO']:
-                    data = pd.read_csv(uploadedFile)
-
-                    data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
-                    columnSort = data['PBV'].tolist()
-                    sortedColumn = quick_sort(columnSort)
-
-                    sorted_index = [columnSort.index(val) for val in sortedColumn]
-                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-                
-                    st.write("### Data Tabel")
-                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+                    pe_ratio(uploadedFile)
 
                 elif intent['responses'] == ['PE RATIO REVERSE']:
-                    data = pd.read_csv(uploadedFile)
-
-                    data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
-                    columnSort = data['PBV'].tolist()
-                    sortedColumn = quick_sort_reverse(columnSort)
-
-                    sorted_index = [columnSort.index(val) for val in sortedColumn]
-                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-                
-                    st.write("### Data Tabel")
-                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+                    pe_ratio_reverse(uploadedFile)
 
                 elif intent['responses'] == ['DIVIDENT YIELD']:
-                    data = pd.read_csv(uploadedFile)
-
-                    data['DIVIDENT_YIELD'] = divident_yield(data['DIVIDENT'], data['MARKET_PRICE'])
-                    columnSort = data['DIVIDENT_YIELD'].tolist()
-                    sortedColumn = quick_sort(columnSort)
-
-                    sorted_index = [columnSort.index(val) for val in sortedColumn]
-                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-                
-                    st.write("### Data Tabel")
-                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+                    divident_yield(uploadedFile)
 
                 elif intent['responses'] == ['DIVIDENT YIELD REVERSE']:
-                    data = pd.read_csv(uploadedFile)
+                    divident_yield_reverse(uploadedFile)
 
-                    data['DIVIDENT_YIELD'] = divident_yield(data['DIVIDENT'], data['MARKET_PRICE'])
-                    columnSort = data['DIVIDENT_YIELD'].tolist()
-                    sortedColumn = quick_sort_reverse(columnSort)
-
-                    sorted_index = [columnSort.index(val) for val in sortedColumn]
-                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-                
-                    st.write("### Data Tabel")
-                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
-
-else:
-    st.write("Saya tidak mengerti maksud anda...")
-
-
-
-# st.write("## Result :")
-# if uploadedFile is not None:
-#     data = pd.read_csv(uploadedFile)
-#     data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
-#     columnSort = data['PBV'].tolist()
-#     sortedColumn = quick_sort(columnSort)
-#     sorted_index = [columnSort.index(val) for val in sortedColumn]
-#     dataSorted = data.iloc[sorted_index].reset_index(drop=True)
-#     st.write("### Data Tabel")
-#     AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
-# else:
-#     st.info("Silahkan unggah file csv terlebih dahulu!")
+                else:
+                    st.write("Saya tidak mengerti maksud anda...")
