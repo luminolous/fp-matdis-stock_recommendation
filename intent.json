@@ -1,17 +1,50 @@
 {"intents": [
     {"tag": "pbv",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai pbv nya", "buatkan rekomendasi pbv nya", "PBV"],
+      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai pbv nya", 
+                  "buatkan rekomendasi pbv nya", 
+                  "urutkan dari yang terbesar dahulu", 
+                  "PBV"],
       "responses": ["PBV"],
       "context_set": ""
     },
+    {"tag": "pbv",
+      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai pbv nya", 
+                  "buatkan rekomendasi pbv nya", 
+                  "urutkan dari yang terkecil dahulu", 
+                  "PBV"],
+      "responses": ["PBV REVERSE"],
+      "context_set": ""
+    },
     {"tag": "pe_ratio",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan PE ratio nya", "buatkan rekomendasi PE Ratio nya", "pe ratio"],
+      "patterns": ["tolong buatkan rekomendasi berdasarkan PE ratio nya", 
+                  "buatkan rekomendasi PE Ratio nya", 
+                  "urutkan dari yang terbesar dahulu", 
+                  "pe ratio"],
       "responses": ["PE RATIO"],
       "context_set": ""
     },
+    {"tag": "pe_ratio",
+      "patterns": ["tolong buatkan rekomendasi berdasarkan PE ratio nya", 
+                  "buatkan rekomendasi PE Ratio nya", 
+                  "urutkan dari yang terkecil dahulu", 
+                  "pe ratio"],
+      "responses": ["PE RATIO REVERSE"],
+      "context_set": ""
+    },
     {"tag": "divident_yield",
-      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai divident yield nya", "buatkan rekomendasi divident yield nya", "divident yield"],
+      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai divident yield nya", 
+                  "buatkan rekomendasi divident yield nya", 
+                  "urutkan dari yang terbesar dahulu", 
+                  "divident yield"],
       "responses": ["DIVIDENT YIELD"],
+      "context_set": ""
+    },
+    {"tag": "divident_yield",
+      "patterns": ["tolong buatkan rekomendasi berdasarkan nilai divident yield nya", 
+                  "buatkan rekomendasi divident yield nya", 
+                  "urutkan dari yang terkecil dahulu", 
+                  "divident yield"],
+      "responses": ["DIVIDENT YIELD REVERSE"],
       "context_set": ""
     }
   ]

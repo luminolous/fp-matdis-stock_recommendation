@@ -41,15 +41,15 @@ tag = tags[predicted.item()]
 
 probs = torch.softmax(output, dim=1)
 prob = probs[0][predicted.item()]
+button = st.button("Run")
+st.write("## Result :")
 
-if prob.item() > 0.5:
+if prob.item() > 0.:
     for intent in intents["intents"]:
         if tag == intent["tag"]:
-            button = st.button("Run")
             if button:
                 print(intent['responses'])
                 if intent['responses'] == ['PBV']:
-                    st.write("## Result :")
                     data = pd.read_csv(uploadedFile)
 
                     data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
@@ -62,7 +62,20 @@ if prob.item() > 0.5:
                     st.write("### Data Tabel")
                     AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
 
-                elif intent['responses'] == "PE RATIO":
+                elif intent['responses'] == ['PBV REVERSE']:
+                    data = pd.read_csv(uploadedFile)
+
+                    data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
+                    columnSort = data['PBV'].tolist()
+                    sortedColumn = quick_sort_reverse(columnSort)
+
+                    sorted_index = [columnSort.index(val) for val in sortedColumn]
+                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
+
+                    st.write("### Data Tabel")
+                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+
+                elif intent['responses'] == ['PE RATIO']:
                     data = pd.read_csv(uploadedFile)
 
                     data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
@@ -75,12 +88,38 @@ if prob.item() > 0.5:
                     st.write("### Data Tabel")
                     AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
 
-                elif intent['responses'] == "DIVIDENT YIELD":
+                elif intent['responses'] == ['PE RATIO REVERSE']:
                     data = pd.read_csv(uploadedFile)
 
                     data['PBV'] = PBV_BVPS(data['MARKET_PRICE'], data['BOOK_VALUE_PER_SHARE'])
                     columnSort = data['PBV'].tolist()
+                    sortedColumn = quick_sort_reverse(columnSort)
+
+                    sorted_index = [columnSort.index(val) for val in sortedColumn]
+                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
+                
+                    st.write("### Data Tabel")
+                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+
+                elif intent['responses'] == ['DIVIDENT YIELD']:
+                    data = pd.read_csv(uploadedFile)
+
+                    data['DIVIDENT_YIELD'] = divident_yield(data['DIVIDENT'], data['MARKET_PRICE'])
+                    columnSort = data['DIVIDENT_YIELD'].tolist()
                     sortedColumn = quick_sort(columnSort)
+
+                    sorted_index = [columnSort.index(val) for val in sortedColumn]
+                    dataSorted = data.iloc[sorted_index].reset_index(drop=True)
+                
+                    st.write("### Data Tabel")
+                    AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+
+                elif intent['responses'] == ['DIVIDENT YIELD REVERSE']:
+                    data = pd.read_csv(uploadedFile)
+
+                    data['DIVIDENT_YIELD'] = divident_yield(data['DIVIDENT'], data['MARKET_PRICE'])
+                    columnSort = data['DIVIDENT_YIELD'].tolist()
+                    sortedColumn = quick_sort_reverse(columnSort)
 
                     sorted_index = [columnSort.index(val) for val in sortedColumn]
                     dataSorted = data.iloc[sorted_index].reset_index(drop=True)
@@ -89,7 +128,7 @@ if prob.item() > 0.5:
                     AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
 
 else:
-    print(f"Saya tidak mengerti maksud anda...")
+    st.write("Saya tidak mengerti maksud anda...")
 
 
 
