@@ -2,7 +2,7 @@ import streamlit as st
 from function import *
 import json
 import torch
-from model import NeuralNet
+from model.modulo import NeuralNet   
 from model.train import bag_of_words, tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -39,6 +39,7 @@ tag = tags[predicted.item()]
 
 probs = torch.softmax(output, dim=1)
 prob = probs[0][predicted.item()]
+print(f"Probabilitas : {prob.item()}")
 button = st.button("Run")
 st.write("## Result :")
 
