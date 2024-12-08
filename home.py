@@ -3,11 +3,11 @@ from function import *
 import json
 import torch
 from model import NeuralNet
-from train import bag_of_words, tokenize
+from model.train import bag_of_words, tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('intent.json', 'r') as f:
+with open('model/intent.json', 'r') as f:
     intents = json.load(f)
 
 data = torch.load("data.pth",map_location=torch.device('cpu'), weights_only=True)

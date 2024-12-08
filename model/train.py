@@ -9,7 +9,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
 from model import NeuralNet
-with open('intent.json', 'r') as f:
+with open('model/intent.json', 'r') as f:
     intents = json.load(f)
 
 stemer = PorterStemmer()
