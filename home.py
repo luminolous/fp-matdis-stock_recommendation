@@ -65,6 +65,5 @@ if prob.item() > 0.7:
 
                 elif intent['responses'] == ['DIVIDENT YIELD REVERSE']:
                     divident_yield_reverse(uploadedFile)
-
-                else:
-                    st.write("Saya tidak mengerti maksud anda...")
+else:
+    st.write("Saya tidak mengerti maksud anda...")
