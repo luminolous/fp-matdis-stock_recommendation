@@ -94,8 +94,8 @@ def pe_ratio_reverse(uploadedFile):
 def divident_yield(uploadedFile):
   data = pd.read_csv(uploadedFile)
 
-  data['DIVIDENT_YIELD'] = divident_yld(data['DIVIDEND'], data['MARKET_PRICE'])
-  columnSort = data['DIVIDENT_YIELD'].tolist()
+  data['DIVIDEND_YIELD'] = divident_yld(data['DIVIDEND'], data['MARKET_PRICE'])
+  columnSort = data['DIVIDEND_YIELD'].tolist()
   sortedColumn = quick_sort(columnSort)
 
   sorted_index = [columnSort.index(val) for val in sortedColumn]
@@ -107,8 +107,8 @@ def divident_yield(uploadedFile):
 def divident_yield_reverse(uploadedFile):
   data = pd.read_csv(uploadedFile)
 
-  data['DIVIDENT_YIELD'] = divident_yld(data['DIVIDEND'], data['MARKET_PRICE'])
-  columnSort = data['DIVIDENT_YIELD'].tolist()
+  data['DIVIDEND_YIELD'] = divident_yld(data['DIVIDEND'], data['MARKET_PRICE'])
+  columnSort = data['DIVIDEND_YIELD'].tolist()
   sortedColumn = quick_sort_reverse(columnSort)
 
   sorted_index = [columnSort.index(val) for val in sortedColumn]

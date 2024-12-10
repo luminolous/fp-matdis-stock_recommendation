@@ -2,7 +2,7 @@ import streamlit as st
 from function import *
 import json
 import torch
-from model.modulo import NeuralNet   
+from model.modulo import NeuralNet
 from model.train import bag_of_words, tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
