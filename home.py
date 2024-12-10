@@ -10,7 +10,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open('model/intent.json', 'r') as f:
     intents = json.load(f)
 
-data = torch.load("data.pth",map_location=torch.device('cpu'), weights_only=True)
+data = torch.load("data.pth",map_location=torch.device('cpu'))
 
 input_size = data["input_size"]
 hidden_size = data["hidden_size"]
@@ -30,7 +30,9 @@ sentence = st.text_input("Masukkan prompt:")
 
 sentence = tokenize(sentence)
 x = bag_of_words(sentence, all_words)
+print(x)
 x = x.reshape(1, x.shape[0])
+print(x)
 x = torch.from_numpy(x)
 
 output = model(x)
