@@ -43,10 +43,10 @@ print(f"Probabilitas : {prob.item()}")
 button = st.button("Run")
 st.write("## Result :")
 
-if prob.item() > 0.7:
-    for intent in intents["intents"]:
-        if tag == intent["tag"]:
-            if button:
+if button:
+    if prob.item() > 0.7:
+        for intent in intents["intents"]:
+            if tag == intent["tag"]:
                 print(intent['responses'])
                 if intent['responses'] == ['PBV']:
                     pbv(uploadedFile)
