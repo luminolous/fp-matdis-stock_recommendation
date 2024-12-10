@@ -26,8 +26,10 @@ model.eval()
 
 st.title("Stocks Recommendation")
 st.write("## Input :")
-uploadedFile = st.file_uploader("Masukkan file csv yang berisikan kolom (MARKET_PRICE,BOOK_VALUE_PER_SHARE)", type=["csv"])
-sentence = st.text_input("Masukkan prompt:")
+uploadedFile = st.file_uploader("Required csv file", type=["csv"])
+if uploadedFile == None:
+    st.write("Silahkan upload file csv terlebih dahulu.")
+sentence = st.text_input("Insert prompt:")
 
 sentence = tokenize(sentence)
 x = bag_of_words(sentence, all_words)
@@ -41,7 +43,7 @@ tag = tags[predicted.item()]
 probs = torch.softmax(output, dim=1)
 prob = probs[0][predicted.item()]
 print(f"Probabilitas : {prob.item()}")
-button = st.button("Run")
+button = st.button("Send")
 st.write("## Result :")
 
 if button:
@@ -68,3 +70,6 @@ if button:
                     divident_yield_reverse(uploadedFile)
     else:
         st.write("Saya tidak mengerti maksud anda...")
+
+if uploadedFile == None:
+    st.write("Silahkan upload file csv terlebih dahulu.")

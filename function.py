@@ -6,10 +6,10 @@ from st_aggrid import AgGrid
 def PBV_BVPS(market_price, bvps):
   return round((market_price / bvps), 2)
 
-def PE_Ratio(market_price, netto, stocks):
-    return round((market_price / EPS(netto, stocks)), 2)
+def PE_Ratio(market_price, EPS):
+    return round((market_price / EPS), 2)
 
-def divident_yield(divident, market_price):
+def divident_yld(divident, market_price):
     return round((divident / market_price), 2)
     
 def EPS(netto, stocks):
@@ -50,7 +50,7 @@ def pbv(uploadedFile):
   dataSorted = data.iloc[sorted_index].reset_index(drop=True)
 
   st.write("### Data Tabel")
-  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=False)
 
 def pbv_reverse(uploadedFile):
   data = pd.read_csv(uploadedFile)
@@ -63,12 +63,12 @@ def pbv_reverse(uploadedFile):
   dataSorted = data.iloc[sorted_index].reset_index(drop=True)
 
   st.write("### Data Tabel")
-  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=False)
 
 def pe_ratio(uploadedFile):
   data = pd.read_csv(uploadedFile)
 
-  data['PE_RATIO'] = PE_Ratio(data['MARKET_PRICE'], data['NETTO'], data['STOCKS'])
+  data['PE_RATIO'] = PE_Ratio(data['MARKET_PRICE'], data['EARNINGS_PER_SHARE'])
   columnSort = data['PE_RATIO'].tolist()
   sortedColumn = quick_sort(columnSort)
 
@@ -76,12 +76,12 @@ def pe_ratio(uploadedFile):
   dataSorted = data.iloc[sorted_index].reset_index(drop=True)
                 
   st.write("### Data Tabel")
-  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=False)
 
 def pe_ratio_reverse(uploadedFile):
   data = pd.read_csv(uploadedFile)
 
-  data['PE_RATIO'] = PE_Ratio(data['MARKET_PRICE'], data['NETTO'], data['STOCKS'])
+  data['PE_RATIO'] = PE_Ratio(data['MARKET_PRICE'], data['EARNINGS_PER_SHARE'])
   columnSort = data['PE_RATIO'].tolist()
   sortedColumn = quick_sort_reverse(columnSort)
 
@@ -89,12 +89,12 @@ def pe_ratio_reverse(uploadedFile):
   dataSorted = data.iloc[sorted_index].reset_index(drop=True)
                 
   st.write("### Data Tabel")
-  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=False)
 
 def divident_yield(uploadedFile):
   data = pd.read_csv(uploadedFile)
 
-  data['DIVIDENT_YIELD'] = divident_yield(data['DIVIDENT'], data['MARKET_PRICE'])
+  data['DIVIDENT_YIELD'] = divident_yld(data['DIVIDEND'], data['MARKET_PRICE'])
   columnSort = data['DIVIDENT_YIELD'].tolist()
   sortedColumn = quick_sort(columnSort)
 
@@ -102,12 +102,12 @@ def divident_yield(uploadedFile):
   dataSorted = data.iloc[sorted_index].reset_index(drop=True)
                 
   st.write("### Data Tabel")
-  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=False)
 
 def divident_yield_reverse(uploadedFile):
   data = pd.read_csv(uploadedFile)
 
-  data['DIVIDENT_YIELD'] = divident_yield(data['DIVIDENT'], data['MARKET_PRICE'])
+  data['DIVIDENT_YIELD'] = divident_yld(data['DIVIDEND'], data['MARKET_PRICE'])
   columnSort = data['DIVIDENT_YIELD'].tolist()
   sortedColumn = quick_sort_reverse(columnSort)
 
@@ -115,4 +115,4 @@ def divident_yield_reverse(uploadedFile):
   dataSorted = data.iloc[sorted_index].reset_index(drop=True)
                 
   st.write("### Data Tabel")
-  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=True)
+  return AgGrid(dataSorted, editable=False, height=400, fit_columns_on_grid_load=False)
