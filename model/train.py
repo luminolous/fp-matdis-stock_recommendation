@@ -9,6 +9,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
 from model.modulo import NeuralNet
+
 with open('model/intent.json', 'r') as f:
     intents = json.load(f)
 
@@ -83,7 +84,7 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = NeuralNet(input_size, hidden_size, output_size).to(device)
 
-    # loss and optimizer 
+    # loss and optimizer
     criterian = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 

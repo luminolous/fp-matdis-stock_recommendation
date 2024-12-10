@@ -6,6 +6,7 @@ from model.modulo import NeuralNet
 from model.train import bag_of_words, tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(device)
 
 with open('model/intent.json', 'r') as f:
     intents = json.load(f)
@@ -30,9 +31,7 @@ sentence = st.text_input("Masukkan prompt:")
 
 sentence = tokenize(sentence)
 x = bag_of_words(sentence, all_words)
-print(x)
 x = x.reshape(1, x.shape[0])
-print(x)
 x = torch.from_numpy(x)
 
 output = model(x)
@@ -67,5 +66,5 @@ if button:
 
                 elif intent['responses'] == ['DIVIDENT YIELD REVERSE']:
                     divident_yield_reverse(uploadedFile)
-else:
-    st.write("Saya tidak mengerti maksud anda...")
+    else:
+        st.write("Saya tidak mengerti maksud anda...")

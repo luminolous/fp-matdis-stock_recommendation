@@ -11,7 +11,7 @@ def PE_Ratio(market_price, netto, stocks):
 
 def divident_yield(divident, market_price):
     return round((divident / market_price), 2)
-
+    
 def EPS(netto, stocks):
     return round((netto / stocks), 2)
 
